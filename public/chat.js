@@ -31,3 +31,14 @@ window.onload = function() {
     };
  
 }
+
+
+$(document).ready(function() {
+    $("#content").scrollTop($("#content")[0].scrollHeight);
+
+    $("#field").keyup(function(e) {
+        if(e.keyCode == 13) {
+            $('#send').trigger('click');
+        }
+    });
+});
