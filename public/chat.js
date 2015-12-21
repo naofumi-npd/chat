@@ -49,6 +49,9 @@ $(document).ready(function() {
     });
 });
 
+var notificationCounter = 0;
+var notificationList = ["New Chat Message!", "Hey, You got a message",  "Open now dummy", "Free bacon here!"]
+
 
 var PageTitleNotification = {
     Vars:{
@@ -57,11 +60,19 @@ var PageTitleNotification = {
     },    
     On: function(notification, intervalSpeed){
         var _this = this;
+
+        
         _this.Vars.Interval = setInterval(function(){
+            
+            if(notificationCounter >notificationList.length - 1){
+                notificationCounter = 0;
+            }
+            console.log(notificationCounter);
              document.title = (_this.Vars.OriginalTitle == document.title)
-                                 ? notification
+                                 ? notificationList[notificationCounter]
                                  : _this.Vars.OriginalTitle;
-        }, (intervalSpeed) ? intervalSpeed : 500);
+        notificationCounter++;                                 
+        }, (intervalSpeed) ? intervalSpeed : 750);
     },
     Off: function(){
         clearInterval(this.Vars.Interval);
@@ -93,6 +104,7 @@ setInterval(function () {
     PageTitleNotification.Off();
     notificationOn = false;
     newMessage = false;
+    notificationCounter = 0;
   }
 }, 500);
 
