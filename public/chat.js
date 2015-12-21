@@ -91,7 +91,6 @@ setInterval(function () {
     }
   } else {
     PageTitleNotification.Off();
-    console.log(newMessage);
     notificationOn = false;
     newMessage = false;
   }
