@@ -17,6 +17,9 @@ window.onload = function() {
             }
             content.innerHTML = html;
             $("#content").scrollTop($("#content")[0].scrollHeight);
+            
+            newMessage = true;    
+             
         } else {
             console.log("There is a problem:", data);
         }
@@ -32,7 +35,6 @@ window.onload = function() {
 
         }
     };
- 
 }
 
 
@@ -45,5 +47,53 @@ $(document).ready(function() {
             $("#field").val("");
         }
     });
-
 });
+
+
+var PageTitleNotification = {
+    Vars:{
+        OriginalTitle: document.title,
+        Interval: null
+    },    
+    On: function(notification, intervalSpeed){
+        var _this = this;
+        _this.Vars.Interval = setInterval(function(){
+             document.title = (_this.Vars.OriginalTitle == document.title)
+                                 ? notification
+                                 : _this.Vars.OriginalTitle;
+        }, (intervalSpeed) ? intervalSpeed : 500);
+    },
+    Off: function(){
+        clearInterval(this.Vars.Interval);
+        document.title = this.Vars.OriginalTitle;   
+    }
+}
+
+
+var isActive;
+var newMessage = false;
+var notificationOn = false;
+
+window.onfocus = function () { 
+  isActive = true; 
+}; 
+
+window.onblur = function () { 
+  isActive = false; 
+}; 
+
+
+setInterval(function () { 
+  if(window.isActive === false && newMessage == true){
+    if(notificationOn === false){
+        notificationOn = true;
+        PageTitleNotification.On("New Chat Message!");    
+    }
+  } else {
+    PageTitleNotification.Off();
+    console.log(newMessage);
+    notificationOn = false;
+    newMessage = false;
+  }
+}, 500);
+
