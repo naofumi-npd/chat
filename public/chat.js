@@ -67,11 +67,11 @@ var PageTitleNotification = {
             if(notificationCounter >notificationList.length - 1){
                 notificationCounter = 0;
             }
-            console.log(notificationCounter);
+            
              document.title = (_this.Vars.OriginalTitle == document.title)
-                                 ? notificationList[notificationCounter]
+                                 ? notificationList[notificationCounter++]
                                  : _this.Vars.OriginalTitle;
-        notificationCounter++;                                 
+        
         }, (intervalSpeed) ? intervalSpeed : 750);
     },
     Off: function(){
