@@ -1,0 +1,25 @@
+{
+  "name": "chat",
+  "description": "chat",
+  "main": "index.js",
+  "authors": [
+    "naofumi"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "chat"
+  ],
+  "homepage": "https://github.com/naofumi-npd/chat",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
+}
