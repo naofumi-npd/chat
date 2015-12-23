@@ -2,6 +2,14 @@ var express = require("express");
 var socket = require('socket.io');
 var routes = require('./routes/index');
 
+var mysql      = require('mysql');
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : 'root',
+  database : 'chat'
+});
+
 
 var app = express();
 var port = 3700;
@@ -21,8 +29,7 @@ var io = socket.listen(app.listen(port));
 io.sockets.on('connection', function (socket) {
     socket.emit('message', { message: 'You are connected' });
     socket.on('send', function (data) {
- 
-    	data.message = '(' + getDateTime() + ') ' + data.message;
+    	data.datetime = getDateTime();
         io.sockets.emit('message', data);
     });
 });
