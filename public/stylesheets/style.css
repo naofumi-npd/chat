@@ -1,11 +1,14 @@
 #content{
 	width: 100%; 
+	padding:5px;
 	height: 300px; 
 	margin: 0 0 20px 0; 
 	border: solid 1px #999; 
 	overflow-y: scroll;
 }
-
+.login-container{
+	margin-top:20%;
+}
 input.text{
 	width:350px;
 }

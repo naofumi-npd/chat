@@ -12,6 +12,9 @@ app.engine('jade', require('jade').__express);
 app.use(express.static(__dirname + '/public'));
 
 app.use('/', routes);
+app.use('/login', routes);
+app.use('/register', routes);
+app.use('/forget', routes);
  
 var io = socket.listen(app.listen(port));
 
