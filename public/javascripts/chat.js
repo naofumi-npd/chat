@@ -11,18 +11,8 @@ window.onload = function() {
         if(data.message) {
             messages.push(data);
             var html = '';
-            var currentdate = new Date(); 
-            var datetime =  
-                 (currentdate.getMonth()+1)  + "/" 
-                + currentdate.getDate() + "/"
-                + currentdate.getFullYear() + "@"  
-                + currentdate.getHours() + ":"  
-                + currentdate.getMinutes() + ":" 
-                + currentdate.getSeconds();
-
             for(var i=0; i<messages.length; i++) {
-                html += '<b>' + (messages[i].username ? messages[i].username : 'Server') + ' ' +  datetime + ' :</b>';
-
+                html += '<b>' + (messages[i].username ? messages[i].username : 'Server') + ': </b>';
                 html += messages[i].message + '<br />';
             }
             content.innerHTML = html;
