@@ -3,9 +3,13 @@ html
     head
     title= "EYNPD Chat"
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/lib/bootstrap/dist/css/bootstrap.min.css')
     script(src='/socket.io/socket.io.js')
-    script(src='/lib/jquery/dist/jquery.min.js')
-    script(src='/javascripts/script.js')
-    script(src='/javascripts/chat.js')
+    
   body
     block content
+
+  script(src='/lib/jquery/dist/jquery.min.js')
+  script(src='/lib/bootstrap/dist/bootstrap.min.js')
+  script(src='/javascripts/script.js')
+  script(src='/javascripts/chat.js')  

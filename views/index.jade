@@ -1,11 +1,16 @@
 extends layout
 
 block content
-  <div style="color:red;">Due to EY compliance, this conversation won't be recorded and monitored.</div>
-  <div id="content"></div>
-  <div class="controls">Name: 
-  <input id="name" class="text">
-  <br>
-  <input id="field" class="text">
-  <input id="send" type="button" value="send">
-</div>
+  .container
+      .row
+        .col-xs-12.col-sm-6.col-sm-offset-3
+          h4.alert.alert-danger Due to EY compliance, this conversation won't be recorded and monitored.
+          #content
+          .form-group
+            label(for='usr') Name:
+            input#name.form-control(type='text')
+          label(for='usr') Text:
+          .input-group
+            input#field.form-control(type='text')
+            span.input-group-btn
+              input#send.btn.btn-default(type='submit', value='Send')

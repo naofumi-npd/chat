@@ -16,12 +16,11 @@ app.use('/', routes);
 var io = socket.listen(app.listen(port));
 
 io.sockets.on('connection', function (socket) {
-    socket.emit('message', { message: 'welcome to the chat' });
+    socket.emit('message', { message: 'You are connected' });
     socket.on('send', function (data) {
         io.sockets.emit('message', data);
     });
 });
-
 
 
 console.log("Listening on port " + port);
